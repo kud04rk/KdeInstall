@@ -121,9 +121,6 @@ for PKG in "${PKGS[@]}"; do
     echo "INSTALLING: ${PKG}"
     sudo pacman -S "$PKG" --noconfirm --needed
 done
-if lspci | grep -E "NVIDIA|GeForce"; then
-    nvidia-xconfig	
-fi
 
 echo -e "\nINSTALLING AUR SOFTWARE\n"
 # You can solve users running this script as root with this and then doing the same for the next for statement. However I will leave this up to you.
@@ -192,18 +189,9 @@ konsave -a kde
 else
 export PATH=$PATH:~/.local/bin
 fi
+echo "-------------------------------------------------"
+echo "    Now run the enabling_services.sh as root     "
+echo "-------------------------------------------------"
 
 
 
-if lspci | grep -E "NVIDIA|GeForce"; then
-    nvidia-xconfig	
-fi
-grub-mkconfig -o /boot/grub/grub.cfg
-
-echo -e "\nEnabling Login Display Manager"
-systemctl enable sddm.service
-echo -e "\nSetup SDDM Theme"
-cat <<EOF > /etc/sddm.conf
-[Theme]
-Current=Nordic
-EOF
