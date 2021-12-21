@@ -144,11 +144,10 @@ for PKG in "${PKGS[@]}"; do
     yay -S --noconfirm $PKG
 done
 
-echo" enter the name of theme you want to install"
-echo" nordic"
+echo " enter the name of theme you want to install"
+echo " nordic"
 read themeinstall
-
-if [[$themeinstall =~ "nordic"]]; then
+if [[ ${themeinstall} =~ "nordic"]]; then
 PKGS=(
 'awesome-terminal-fonts'
 'lightly-git'
