@@ -53,7 +53,6 @@ PKGS=(
 'gst-plugins-ugly'
 'gwenview'
 'haveged'
-'iptables-nft'
 'jdk-openjdk' # Java 17
 'kate'
 'kcodecs'
