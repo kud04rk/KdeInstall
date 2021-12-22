@@ -17,8 +17,8 @@ if lspci | grep -E "NVIDIA|GeForce"; then
     	nvidia-xconfig
 fi
 pacman -S grub-btrfs --noconfirm --needed
-umount /.snapshots/
-rm -rf /.snapshots/
+# umount /.snapshots/
+# rm -rf /.snapshots/
 snapper -c root create-config /
 echo "Enter the Name of user who can Access the snapshots"
 read userna
