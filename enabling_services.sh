@@ -47,7 +47,7 @@ pacman -S grub-btrfs --noconfirm --needed
 echo "Enter the size of zram(MB)"
 echo "yOUCAN EDIT THIS LATER AT /etc/default/zramd"
 read zram
-sed -i 's/^MAX_SIZE=8192/MAX_SIZE="'"${zram}"'"/' /etc/default/zramd
+sed -i 's/^# MAX_SIZE=8192/MAX_SIZE='"${zram}"'/' /etc/default/zramd
 
 systemctl start grub-btrfs.path
 systemctl enable grub-btrfs.path
