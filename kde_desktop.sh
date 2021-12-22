@@ -137,11 +137,19 @@ PKGS=(
 'github-desktop-bin' # Github Desktop sync
 'ocs-url' # install packages from websites
 'snap-pac'
+'zramd'
+'timeshift-bin'
+'timeshift-autosnap'
 )
 
 for PKG in "${PKGS[@]}"; do
     yay -S --noconfirm $PKG
 done
+
+echo "Enter the size of zram(MB)"
+read zram
+echo "yOUCAN EDIT THIS LATER AT /etc/default/zramd"
+sed -i 's/^MAX_SIZE=8192/MAX_SIZE="'"${zram}"'"/' /etc/default/zramd
 
 #switching to snapper for better usefulness with btrfs
 # echo "CLONING: Timeshift"
