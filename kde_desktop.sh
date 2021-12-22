@@ -143,6 +143,14 @@ for PKG in "${PKGS[@]}"; do
     yay -S --noconfirm $PKG
 done
 
+#switching to snapper for better usefulness with btrfs
+# echo "CLONING: Timeshift"
+# cd ~
+# git clone "https://aur.archlinux.org/timeshift.git"
+# cd ${HOME}/timeshift
+# makepkg -si --noconfirm
+# cd ~
+
 echo " enter the name of theme you want to install"
 echo "options (nordic)"
 read themeinstall
