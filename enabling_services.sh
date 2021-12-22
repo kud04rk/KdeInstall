@@ -16,6 +16,7 @@ then
 if lspci | grep -E "NVIDIA|GeForce"; then
     	nvidia-xconfig
 fi
+pacman -S grub-btrfs --noconfirm --needed
 umount /.snapshots/
 rm -ef /.snapshots/
 snapper -c root create-config /
