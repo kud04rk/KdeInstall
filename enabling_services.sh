@@ -18,11 +18,11 @@ if lspci | grep -E "NVIDIA|GeForce"; then
 fi
 pacman -S grub-btrfs --noconfirm --needed
 umount /.snapshots/
-rm -ef /.snapshots/
+rm -rf /.snapshots/
 snapper -c root create-config /
 echo "Enter the Name of user who can Access the snapshots"
 read userna
-echo "yOUCAN EDIT THIS LATER AT /etc/snapper/config/root"
+echo "yOUCAN EDIT THIS LATER AT /etc/snapper/configs/root"
 sed -i 's/^ALLOW_USERS=""/ALLOW_USERS="'"$userna"'"/' /etc/snapper/configs/root
 sed -i 's/^TIMELINE_LIMIT_HOURLY="10"/TIMELINE_LIMIT_HOURLY="8"/' /etc/snapper/configs/root
 sed -i 's/^TIMELINE_LIMIT_DAILY="10"/TIMELINE_LIMIT_DAILY="6"/' /etc/snapper/configs/root
